@@ -3,11 +3,14 @@
   "version": "1.0.0",
   "type": "module",
   "main": "index.js",
+  "engines": {
+    "node": "20.x"
+  },
   "repository": "https://github.com/Himpunan-Mahasiswa-Informatika/hmif-backend.git",
   "author": "glennhkm <glenn.hkm@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon index"
+    "dev": "node index"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
