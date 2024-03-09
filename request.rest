@@ -1,0 +1,22 @@
+GET http://localhost:4000/feedback
+###
+
+GET http://localhost:4000/articles
+###
+
+PATCH http://localhost:4000/feedback/65dc6502895e006b84b03cba
+Content-Type: application/json
+
+{
+    "comments": "HMIF USK jangan"
+}
+###
+
+POST http://localhost:4000/articles
+Content-Type: application/json
+
+{
+    "title": "Integer HMIF USK",
+    "description": "Integer HMIF USK diadakan di pantai riting",
+    "category": "event"
+}
