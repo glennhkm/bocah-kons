@@ -4,7 +4,7 @@
   "type": "module",
   "main": "index.js",
   "engines": {
-    "node": "20.x"
+    "node": "18.x"
   },
   "repository": "https://github.com/Himpunan-Mahasiswa-Informatika/hmif-backend.git",
   "author": "glennhkm <glenn.hkm@gmail.com>",
