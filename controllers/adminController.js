@@ -15,20 +15,20 @@ import bcrypt from "bcrypt";
 //     }
 // }
 
-// export const registerAdmin = async (req, res) => {
-//     try {
-//         const { username, password } = req.body;    
-//         const checkUsername = await adminModel.findOne({ username });
-//         if (checkUsername) {
-//           return res.status(409).json({ message: "Username already used" });
-//         }
-//         const hashedPassword = await bcrypt.hash(password, 10);
-//         const { _id } = await new adminModel({ username, password: hashedPassword }).save();
-//         res.status(201).json({messaage: "Admin registered successfully", content: { _id, username }});
-//     } catch (error) {
-//         res.status(500).json({ message: error.message });     
-//     }
-// }
+export const registerAdmin = async (req, res) => {
+    try {
+        const { username, password } = req.body;    
+        const checkUsername = await adminModel.findOne({ username });
+        if (checkUsername) {
+          return res.status(409).json({ message: "Username already used" });
+        }
+        const hashedPassword = await bcrypt.hash(password, 10);
+        const { _id } = await new adminModel({ username, password: hashedPassword }).save();
+        res.status(201).json({messaage: "Admin registered successfully", content: { _id, username }});
+    } catch (error) {
+        res.status(500).json({ message: error.message });     
+    }
+}
 
 export const loginAdmin = async (req, res) => {
     try {
@@ -39,7 +39,7 @@ export const loginAdmin = async (req, res) => {
         }
         const comparePassword = await bcrypt.compare(password, admin.password);
         if(!comparePassword){
-            return res.status(401).json({message: "Invalid credentials"});
+            return res.status(401).json({message: "Invalid credentialss"});
         }
         // const accesToken = jwt.sign({ id: admin._id, username: admin.username }, process.env.JWT_SECRET, { expiresIn: "20s" });
         const accesToken = jwt.sign({ id: admin._id, username: admin.username }, process.env.JWT_SECRET);
@@ -48,5 +48,14 @@ export const loginAdmin = async (req, res) => {
     } catch (error) {
         res.status(500).json({ message: error.message });     
     }   
+}
+
+export const getAdmin = async (req, res) => {
+    try {
+        const admins = await adminModel.find();
+        res.status(200).json(admins);
+    } catch (error) {
+        res.status(500).json({message: error.message});
+    }
 }
 

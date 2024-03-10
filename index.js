@@ -35,10 +35,10 @@ app.use("/admin", adminRouter);
 app.use("/media", mediaRouter);
 app.use("/social", socialRouter);
 app.use("/staff", staffRouter);
-app.get("/mediaStorage/:filename", (req, res) => {
-  console.log(`${process.env.LOCALHOST_URL}/mediaStorage/:filename/${req.params.filename}`);
-  res.send(`${process.env.LOCALHOST_URL}/mediaStorage/:filename/${req.params.filename}`)
-});
+// app.get("/mediaStorage/:filename", (req, res) => {
+//   console.log(`${process.env.LOCALHOST_URL}/mediaStorage/:filename/${req.params.filename}`);
+//   res.send(`${process.env.LOCALHOST_URL}/mediaStorage/:filename/${req.params.filename}`)
+// });
 
 app.listen(process.env.PORT, () => {
   console.log(`Running on http://localhost:${process.env.PORT}`);
